@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+
+{% block title %}
+Login Page - Zammy
+{% endblock title %}
+
+{% block content %}
+
+    <h1 class="display-4 text-center my-5">Login</h1>
+
+    <div class="container">
+        <div class="row row-cols-sm-1 row-cols-lg-3 container">
+            <div class="col-12">     
+            </div>
+            <div class="col-12">
+                <div>
+                    {% for message in messages %}
+                    <h5 class="text-danger">{{message}}</h5>
+                    {% endfor %}
+                </div>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label visually-hidden">Username</label>
+                        <input type="username" name="username" class="form-control" id="exampleInputEmail1" placeholder="Username" aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label visually-hidden">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label for="exampleCheck1" class="form-check-label">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <p>Not a user? <a href={% url "register" %}>Register</a></p>
+            </div>
+            <div class="col-12">
+                
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
